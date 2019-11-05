@@ -6,6 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 
+// NgRx
+import { StoreModule } from "@ngrx/store";
+import { appReducers } from './app.reducer';
+
 // FireBase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -43,7 +47,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    StoreModule.forRoot(appReducers),
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
