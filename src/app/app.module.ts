@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 // NgRx
 import { StoreModule } from "@ngrx/store";
 import { appReducers } from './app.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 // FireBase
 import { AngularFireModule } from '@angular/fire';
@@ -49,6 +50,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     StoreModule.forRoot(appReducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
