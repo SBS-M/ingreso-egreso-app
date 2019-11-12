@@ -60,7 +60,7 @@ export class IngresoEgresoComponent implements OnInit, OnDestroy {
       Swal.fire('Error', error, 'error');
     });
     
-    console.log(ingresoEgreso);
+   // console.log(ingresoEgreso);
   }
 
   public changeType(){

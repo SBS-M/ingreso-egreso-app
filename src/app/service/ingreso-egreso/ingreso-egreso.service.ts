@@ -29,12 +29,13 @@ export class IngresoEgresoService {
         filter(auth => auth.user != null)
       )
       .subscribe((auth) => {
+        
         this.ingresosEgresosItems( auth.user.uid);
       });
   }
 
   private ingresosEgresosItems(uid: string) {
-
+    
     this.ingresoEgresoListenerSubscription = this.afDB.collection(`${uid}/ingresos-egresos/items`).snapshotChanges()
       .pipe( 
          map( docData => {

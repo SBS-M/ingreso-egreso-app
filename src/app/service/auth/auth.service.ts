@@ -12,6 +12,7 @@ import { Store } from '@ngrx/store';
 
 // FireBase 
 import * as firebase from 'firebase';
+import 'firebase/firestore';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AppState } from 'src/app/app.reducer';
 import { ActivateLoadingAction, DesactivateLoadingAction } from 'src/app/components/shared/ui.accions';
@@ -57,7 +58,7 @@ export class AuthService {
     this.store.dispatch( new ActivateLoadingAction());
 
     this.afAtuh.auth.createUserWithEmailAndPassword(email,password).then((result)=>{
-      console.log("Success ", result);
+      //console.log("Success ", result);
 
       const user: User = {
         uid: result.user.uid,
@@ -84,7 +85,7 @@ export class AuthService {
     this.store.dispatch( new ActivateLoadingAction());
 
     this.afAtuh.auth.signInWithEmailAndPassword(email, password).then((result)=>{
-      console.log("Success ", result);
+      //console.log("Success ", result);
 
       this.router.navigate(['/dashboard']);
       this.store.dispatch( new DesactivateLoadingAction());

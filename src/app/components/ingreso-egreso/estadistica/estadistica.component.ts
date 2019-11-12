@@ -38,7 +38,8 @@ export class EstadisticaComponent implements OnInit, OnDestroy {
 
   public listenerIngresosEgresos(){
     this.ingresosSubscription = this.store.select('itemsUser').subscribe((collection) => {
-
+      console.log("collection ", collection);
+      
       this.contarIngresoEgreso(collection.items);
       
     })

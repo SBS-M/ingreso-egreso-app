@@ -32,7 +32,7 @@ export class DetalleComponent implements OnInit, OnDestroy {
   public cargarDetalles(){
     this.cargaDetalleSubscription = this.store.select('itemsUser').subscribe((collection)=>{
       this.listItems = collection.items;
-      console.log("listItems ", this.listItems);
+      console.log("listItems ", collection);
       
     })
   }
@@ -41,7 +41,7 @@ export class DetalleComponent implements OnInit, OnDestroy {
     
     this.ingresoEgresoService.borrarIngresoEgreso( item.uid )
     .then((result) => {
-      console.log("result ", result);
+     // console.log("result ", result);
       
       Swal.fire('Borrado', item.descripcion ,'success');
     })
