@@ -11,7 +11,7 @@ export class IngresoEgreso{
         this.descripcion = dataIngresoEgreso && dataIngresoEgreso.descripcion || null;
         this.monto = dataIngresoEgreso && dataIngresoEgreso.monto || null;
         this.tipo = dataIngresoEgreso && dataIngresoEgreso.tipo || null;
-        this.uid = dataIngresoEgreso && dataIngresoEgreso.uid || null;
+        /* this.uid = dataIngresoEgreso && dataIngresoEgreso.uid || null; */
     }
 
 }

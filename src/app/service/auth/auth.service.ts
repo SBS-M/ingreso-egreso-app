@@ -25,6 +25,7 @@ import { Subscription } from 'rxjs';
 export class AuthService {
 
   private userSuscription: Subscription = new Subscription();
+  private usuario: User;
 
   constructor( 
     private afAtuh: AngularFireAuth,
@@ -35,20 +36,19 @@ export class AuthService {
 
   initAuthListener(){
     this.afAtuh.authState.subscribe( (fbUser: firebase.User)=> {
-      console.log("fbUser ", fbUser);
+      /* console.log("fbUser ", fbUser); */
 
       if ( fbUser ){
         this.userSuscription = this.afDB.doc(`${fbUser.uid}/usuario`).valueChanges().subscribe((result: any) => {
-          console.log(" this.result ", result);
+          /* console.log(" this.result ", result); */
           this.store.dispatch(new fromAuth.AuthUserAction( new User( result )));
+          this.usuario = new User(result);
         });
       } else {
-
+        
+        this.usuario = null;
         this.userSuscription.unsubscribe();
-
       }
-      
-      
     });
   };
 
@@ -110,6 +110,10 @@ export class AuthService {
 
         return fbUser != null })
     );
+  }
+
+  getUser(){
+    return new User(this.usuario);
   }
 
 }

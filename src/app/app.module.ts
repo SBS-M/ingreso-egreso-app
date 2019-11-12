@@ -15,6 +15,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
+// Graficas
+import { ChartsModule } from 'ng2-charts';
+
 // Enviroment
 import { environment } from 'src/environments/environment.prod';
 
@@ -28,6 +31,7 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { SidebarComponent } from './components/shared/sidebar/sidebar.component';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { OrdenIngresoEgresoPipe } from './pipes/orden-ingreso-egreso.pipe';
 
 
 @NgModule({
@@ -42,6 +46,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
+    OrdenIngresoEgresoPipe,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +60,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
+    ChartsModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

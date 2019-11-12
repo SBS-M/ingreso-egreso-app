@@ -39,8 +39,8 @@
 
               <hr>
               <button type="submit" class="btn btn-success mr-2" [disabled]="!ingresoEgresoForm.valid" >
-                <i class="fa fa-save"></i>
-                Agregar
+                <i class="fa {{ isLoading ? 'fa-spin fa-sync' : 'fa-save' }} fa-save"></i>
+                {{ isLoading ? 'Cargando...' : 'Agregar' }}
               </button>
 
               <!-- 
