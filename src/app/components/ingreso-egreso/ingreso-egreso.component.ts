@@ -7,6 +7,7 @@ import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';
 import * as fromUI from './../shared/ui.accions';
 import { Subscription } from 'rxjs';
+import * as fromIngresoEgresoReducer from './ingreso-egreso.reducer';
 
 @Component({
   selector: 'app-ingreso-egreso',
@@ -22,7 +23,7 @@ export class IngresoEgresoComponent implements OnInit, OnDestroy {
   constructor(
     private formBiulder: FormBuilder,
     private ingresoEgresoService: IngresoEgresoService,
-    private store: Store<AppState>
+    private store: Store<fromIngresoEgresoReducer.AppState>
   ) {
     this.ingresoEgresoForm = this.formBiulder.group({
       descripcion: ['', [Validators.required]],
